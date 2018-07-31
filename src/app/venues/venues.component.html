@@ -24,4 +24,12 @@
     <venue *ngFor="let venue of venues"
       [venue]="venue"></venue>
   </div>
+  <div class="search-results-pagination">
+    <a href="#"
+      (click)="pageChange(-1)"
+      *ngIf="page > 0">Previous page</a>
+    <a href="#"
+      (click)="pageChange(1)"
+      *ngIf="page < pagesNo - 2">Next page</a>
+  </div>
 </div>

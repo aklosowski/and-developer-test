@@ -44,3 +44,12 @@ input {
 .search-results-info {
     margin-bottom: 30px;
 }
+
+.search-results-pagination {
+    font-size: 1rem;
+    margin-top: 2em;
+}
+
+.search-results-pagination a:last-child {
+    margin-left: 20px;
+}

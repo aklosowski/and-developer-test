@@ -71,4 +71,9 @@ export class VenuesComponent implements OnDestroy {
       this.fourSquareSubscription.unsubscribe();
     }
   }
+
+  pageChange(n: number) {
+    this.page += n;
+    this.search();
+  }
 }
