@@ -12,14 +12,35 @@ input {
     width: 100%;
 }
 
-.search-form-container {
+.search-form-container, .search-results {
     width: 400px;
     max-width: 100%;
     margin: 2rem auto;
+}
+
+.search-results {
+    width: 800px;
+    text-align: center;
 }
 
 .search-label {
     font-weight: lighter;
     width: 100%;
     text-align: center;
+}
+
+.search-error {
+    margin: 2rem 0;
+    color: indianred;
+    font-style: italic;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.venues-container {
+    width: 100%;
+}
+
+.search-results-info {
+    margin-bottom: 30px;
 }

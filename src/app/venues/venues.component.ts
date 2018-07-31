@@ -13,6 +13,12 @@ export class VenuesComponent implements OnDestroy {
 
   searchQuery = '';
   errorMessage = '';
+  info = '';
+
+  searchQueryLast = '';
+  page = 0;
+
+  pagesNo = 0;
 
   venues = null;
 
@@ -25,16 +31,37 @@ export class VenuesComponent implements OnDestroy {
 
   submitSearch() {
 
-    this.unsubscribe();
+    this.page = 0;
+    this.searchQueryLast = this.searchQuery;
+    this.search();
+  }
 
-    this.fourSquareSubscription = this.fourSquareService.getVenueRecommendations(this.searchQuery).subscribe((response: any) => {
+  private search() {
 
-      console.log(response);
+    if (this.searchQueryLast.trim().length > 0) {
 
-    }, (response: any) => {
+      this.errorMessage = '';
+      this.unsubscribe();
 
-      console.log(response);
-    });
+      this.fourSquareSubscription =
+        this.fourSquareService.getVenueRecommendations(this.searchQueryLast, this.page)
+          .subscribe((response: object) => {
+
+            this.info = this.fourSquareService.getInfoFromResponse(response);
+            this.venues = this.fourSquareService.getVenuesFromResponse(response);
+            this.pagesNo = this.fourSquareService.getPagesNumberFromResponse(response);
+            this.errorMessage = '';
+
+          }, (response: object) => {
+
+            this.venues = null;
+            this.errorMessage = this.fourSquareService.getErrorFromResponse(response);
+          });
+
+    } else {
+
+      this.errorMessage = 'Please provide a location';
+    }
   }
 
   private unsubscribe(): void {
