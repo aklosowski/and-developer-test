@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FoursquareService } from './foursquare/foursquare.service';
-import { Subscription } from '../../../node_modules/rxjs/Subscription';
-import { Venue } from './venue';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'venues',
@@ -28,13 +27,13 @@ export class VenuesComponent implements OnDestroy {
 
     this.unsubscribe();
 
-    this.fourSquareSubscription = this.fourSquareService.getVenueRecommendations(this.searchQuery).subscribe((venues: Venue[]) => {
+    this.fourSquareSubscription = this.fourSquareService.getVenueRecommendations(this.searchQuery).subscribe((response: any) => {
 
-      this.venues = venues;
+      console.log(response);
 
-    }, (error: Error) => {
+    }, (response: any) => {
 
-      this.errorMessage = error.message;
+      console.log(response);
     });
   }
 
