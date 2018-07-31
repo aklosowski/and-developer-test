@@ -1,0 +1,25 @@
+input, button {
+    border: solid 1px #AAAAAA;
+    border-radius: none;
+    height: 2rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin: 1rem auto;
+    display: block;
+}
+
+input {
+    width: 100%;
+}
+
+.search-form-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 2rem auto;
+}
+
+.search-label {
+    font-weight: lighter;
+    width: 100%;
+    text-align: center;
+}

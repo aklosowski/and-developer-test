@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { VenuesComponent } from './venues/venues.component';
 import { VenueComponent } from './venues/venue/venue.component';
-import { FoursquareService } from './foursquare.service';
+import { FoursquareService } from './venues/foursquare/foursquare.service';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { FoursquareService } from './foursquare.service';
     VenueComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [FoursquareService],
   bootstrap: [AppComponent]

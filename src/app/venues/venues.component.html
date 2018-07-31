@@ -1,3 +1,17 @@
-<p>
-  venues works!
-</p>
+<div class="search-form-container">
+
+  <form class="search-form"
+    (ngSubmit)="submitSearch()">
+
+    <div class="search-label">Find venue recommendations in the area</div>
+
+    <input [(ngModel)]="searchQuery"
+      name="searchInput"
+      type="text"
+      placeholder="Where?"
+      class="search-input-container">
+
+    <button type="submit">Search</button>
+
+  </form>
+</div>
