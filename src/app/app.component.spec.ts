@@ -1,11 +1,25 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { VenueComponent } from './venues/venue/venue.component';
+import { VenuesComponent } from './venues/venues.component';
+import { FormsModule } from '../../node_modules/@angular/forms';
+import { FoursquareService } from './venues/foursquare/foursquare.service';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { BrowserModule } from '../../node_modules/@angular/platform-browser';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        VenuesComponent,
+        VenueComponent
       ],
+      imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule
+      ],
+      providers: [FoursquareService]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
@@ -17,11 +31,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
   }));
 });

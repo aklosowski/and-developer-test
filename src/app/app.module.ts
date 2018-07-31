@@ -21,6 +21,7 @@ import { FoursquareService } from './venues/foursquare/foursquare.service';
     HttpClientModule
   ],
   providers: [FoursquareService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [VenueComponent]
 })
 export class AppModule { }
